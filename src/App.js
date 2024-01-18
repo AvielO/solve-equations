@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "katex/dist/katex.min.css";
 import { BlockMath, InlineMath } from "react-katex";
 import Confetti from "react-confetti";
+import correctAnswerSound from "./correct-answer.mp3";
+import wrongAnswerSound from "./wrong-answer.mp3";
 import "./App.css";
 
 const nerdamer = require("nerdamer/all.min");
@@ -86,9 +88,17 @@ function App() {
     if (`${userAnswer}` == rightAnswer) {
       setShowConfetti(true);
       setEquationClasses("correct-answer");
+      const audioElement = document.getElementById("correctAnswerAudio");
+      if (audioElement) {
+        audioElement.play();
+      }
       createNewEquation();
     } else {
       setEquationClasses("wrong-answer");
+      const audioElement = document.getElementById("wrongAnswerAudio");
+      if (audioElement) {
+        audioElement.play();
+      }
       setShowWrongAnswerMessage(true);
     }
     setTimeout(() => {
@@ -139,6 +149,14 @@ function App() {
           numberOfPieces={400}
         />
       )}
+      <audio id="correctAnswerAudio" hidden>
+        <source src={correctAnswerSound} type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="wrongAnswerAudio" hidden>
+        <source src={wrongAnswerSound} type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
     </div>
   );
 }
