@@ -12,7 +12,7 @@ function App() {
   const [rightAnswer, setRightAnswer] = useState("");
   const [showConfetti, setShowConfetti] = useState(false);
   const [equationClasses, setEquationClasses] = useState("");
-  const [showWrongAnswerMessage, setShowWrongAnswerMessage] = useState(true);
+  const [showWrongAnswerMessage, setShowWrongAnswerMessage] = useState(false);
 
   const createNewEquation = (event) => {
     setUserAnswer("");
