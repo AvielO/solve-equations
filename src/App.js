@@ -114,7 +114,7 @@ function App() {
       <div>
         <h1>האתר הרשמי לפתירת משוואות</h1>
         <h2>נוצר לכבוד מאיה</h2>
-        <h3>באתר תוכלי לפתור משוואות פשוטות עד שתגיעי לשליטה מוחלטת</h3>
+        <h3>באתר תוכלי לתרגל משוואות עד שתגיעי לשליטה מוחלטת</h3>
       </div>
       <div className={"equation-container " + equationClasses}>
         <BlockMath math={`${question}`} />
